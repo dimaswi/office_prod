@@ -79,6 +79,7 @@ class ViewMasuk extends ViewRecord
                                 ->send();
                         }
                     ),
+                    EditAction::make()->icon('heroicon-o-pencil-square')->color('warning'),
             ];
         } else {
             return [

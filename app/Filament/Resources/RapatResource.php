@@ -17,6 +17,11 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\RepeatableEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -132,6 +137,26 @@ class RapatResource extends Resource
     //             ]),
     //         ]);
     // }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist->schema([
+            Section::make()
+                ->schema([
+                    TextEntry::make('nomor_rapat')->label('Nomor Rapat')->badge(),
+                    TextEntry::make('jam_rapat')->label('Jam')->badge(),
+                    TextEntry::make('hari_rapat')->label('Hari Rapat'),
+                    TextEntry::make('tanggal_rapat')->label('Tanggal Rapat'),
+                    TextEntry::make('starts_at')->label('Jam Mulai')->badge(),
+                    TextEntry::make('ends_at')->label('Jam Selesai')->badge(),
+                    TextEntry::make('unit.nama_unit')->label('Unit Rapat'),
+                    TextEntry::make('pimpinan.name')->label('Pimpinan Rapat'),
+                    TextEntry::make('tempat_rapat')->label('Tempat Rapat'),
+                    TextEntry::make('agenda_rapat')->label('Agenda Rapat'),
+                ])->columns(2),
+
+        ]);
+    }
 
     public static function getRelations(): array
     {

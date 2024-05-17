@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('sifat_surat');
             $table->string('penerima_surat');
             $table->longText('isi_surat');
+            $table->foreignUuid('rapat')->constrained();
+            $table->foreignUuid('unit')->constrained();
             $table->timestamps();
         });
     }

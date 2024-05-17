@@ -5,6 +5,7 @@ namespace App\Filament\Resources\KeluarResource\Pages;
 use App\Filament\Resources\KeluarResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Contracts\Support\Htmlable;
 
 class EditKeluar extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditKeluar extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    public function getTitle(): string | Htmlable
+    {
+        return __('Edit Surat Keluar');
     }
 }

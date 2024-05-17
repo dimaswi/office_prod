@@ -30,4 +30,9 @@ class Unit extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function suratKeluar(): HasMany
+    {
+        return $this->hasMany(Keluar::class);
+    }
 }

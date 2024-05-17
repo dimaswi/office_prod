@@ -96,7 +96,7 @@ class MasukResource extends Resource
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
-                ActionsAction::make('disposisi')->infolist([
+                ActionsAction::make('disposisi')->icon('heroicon-o-clipboard-document-list')->infolist([
                     RepeatableEntry::make('tindak_lanjuts')->label('')
                         ->schema([
                             Section::make('Tindak Lanjut')

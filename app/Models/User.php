@@ -8,6 +8,7 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -68,5 +69,20 @@ class User extends Authenticatable
     public function tlmasuk(): BelongsTo
     {
         return $this->belongsTo(TLMasuk::class);
+    }
+
+    public function Suratkeluar(): HasMany
+    {
+        return $this->hasMany(Keluar::class, 'tanda_tangan');
+    }
+
+    public function Revisi() : HasMany
+    {
+        return $this->hasMany(Revision::class);
+    }
+
+    public function keluar() : HasMany
+    {
+        return $this->hasMany(Keluar::class);
     }
 }
